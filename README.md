@@ -1,2 +1,2 @@
 # core-java
-Contains exemplary code for <bold>Core Java</bold> concepts
+Contains exemplary code for **Core Java** concepts
