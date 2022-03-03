@@ -6,6 +6,7 @@ interface MyInterfaceA {
 }
 
 class ImplementorClass implements MyInterfaceA {
+    @Override
     public int show(int val) {
         System.out.println("Overridden inside another class " + val);
         return val + 5;
@@ -19,6 +20,7 @@ public class LambdaExpressionDemo {
 
         // Using anonymous inner class instead
         MyInterfaceA obj2 = new MyInterfaceA() {
+            @Override
             public int show(int val) {
                 System.out.println("Overridden inside anonymous inner class " + val);
                 return val + 5;
