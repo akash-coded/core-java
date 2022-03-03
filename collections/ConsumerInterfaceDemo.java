@@ -12,7 +12,7 @@ class ConsumerImplementor implements Consumer<Integer> {
 
 public class ConsumerInterfaceDemo {
     public static void main(String[] args) {
-        List<Integer> myList = new ArrayList<Integer>();
+        List<Integer> myList = new ArrayList<>();
 
         myList.add(1);
         myList.add(2);
