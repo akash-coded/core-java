@@ -3,9 +3,10 @@ package collections;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.function.Consumer;
 
-public class ArrayListDemo {
+public class CollectionDemo {
     public static void main(String[] args) {
         // Creating a collection
         ArrayList<Integer> list1 = new ArrayList<>();
@@ -24,6 +25,23 @@ public class ArrayListDemo {
         }
         System.out.println();
 
+        // Finding the size of the collection
+        System.out.print("No. of elements in List-1 = ");
+        System.out.println(list1.size());
+        System.out.println();
+
+        // Bi-directional iteration using ListIterator
+        ListIterator<Integer> listItr = list1.listIterator();
+        System.out.println("Printing List-1 forwards:: ");
+        while (listItr.hasNext()) {
+            System.out.println(listItr.next());
+        }
+        System.out.println("Printing List-1 backwards:: ");
+        while (listItr.hasPrevious()) {
+            System.out.println(listItr.previous());
+        }
+        System.out.println();
+
         // Accessing an element of a collection
         System.out.print("Third element of List-1 = ");
         System.out.println(list1.get(2)); // retrieves the element at index-2
@@ -32,7 +50,7 @@ public class ArrayListDemo {
         // Removing an element from a collection
         Integer elementToBeRemoved = 10;
         list1.remove(elementToBeRemoved); // using Integer argument removes that object
-        System.out.println("List-1 after removal of 10  - ");
+        System.out.println("List-1 after removal of 10:: ");
         Iterator<Integer> itr2 = list1.iterator();
         while (itr2.hasNext()) {
             System.out.println(itr2.next());
