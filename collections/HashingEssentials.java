@@ -30,8 +30,9 @@ class MyClass {
         if (importantField == null) {
             if (other.importantField != null)
                 return false;
-        } else if (!importantField.equals(other.importantField))
+        } else if (!importantField.equals(other.importantField)) {
             return false;
+        }
         return true;
     }
 }

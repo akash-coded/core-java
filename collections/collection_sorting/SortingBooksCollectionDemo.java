@@ -24,9 +24,7 @@ class Book implements Comparable<Book> {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((author == null) ? 0 : author.hashCode());
         result = prime * result + id;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
         return result;
     }
 
@@ -38,32 +36,28 @@ class Book implements Comparable<Book> {
             return false;
         if (getClass() != obj.getClass())
             return false;
+
         Book other = (Book) obj;
-        if (author == null) {
-            if (other.author != null)
-                return false;
-        } else if (!author.equals(other.author))
-            return false;
-        if (id != other.id)
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        return true;
+        return id == other.id;
     }
 
     @Override
     public int compareTo(Book b) {
-        if (this.id < b.id) { // descending order
+        if (this.id > b.id) { // descending order
             return 1;
-        } else if (this.id > b.id) {
+        } else if (this.id < b.id) {
             return -1;
         } else {
             return 0;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Book [author=" + author + ", id=" + id + ", name=" + name + ", publisher=" + publisher + ", quantity="
+                + quantity + "]";
+    }
+
 }
 
 class BookComparator implements Comparator<Book> {
@@ -91,12 +85,26 @@ public class SortingBooksCollectionDemo {
         bookList.add(b3);
 
         System.out.println("Before sorting:: ");
-        bookList.forEach(
-                b -> System.out.println(b.id + " " + b.name + " " + b.author + " " + b.publisher + " " + b.quantity));
+        bookList.forEach(System.out::println);
+        System.out.println();
 
+        // sorting the books by id
+        Collections.sort(bookList);
+        System.out.println("After sorting a/c to id via Comparable and compareTo():: ");
+        bookList.forEach(System.out::println);
+        System.out.println();
+
+        // sorting the books by quantity
         Collections.sort(bookList, new BookComparator());
-        System.out.println("After sorting:: ");
-        bookList.forEach(
-                b -> System.out.println(b.id + " " + b.name + " " + b.author + " " + b.publisher + " " + b.quantity));
+        System.out.println("After sorting a/c to quantity via Comparator and compare():: ");
+        bookList.forEach(System.out::println);
+        System.out.println();
+
+        // sorting the books by names
+        Collections.sort(bookList,
+                (Comparator<Book>) (book1, book2) -> book1.compareTo(book2)); // using lambda expression
+        System.out.println("After sorting a/c to names via Comparator and compare() using lambda expressions:: ");
+        bookList.forEach(System.out::println);
+        System.out.println();
     }
 }
