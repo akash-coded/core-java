@@ -1,0 +1,1 @@
+Example of try-with-resources and file handling
