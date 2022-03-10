@@ -1,4 +1,4 @@
-package src.collections;
+package src.objects_basics;
 
 class MyClass {
     private final String importantField;
@@ -37,7 +37,7 @@ class MyClass {
     }
 }
 
-public class HashingEssentials {
+public class EqualsAndHashCode {
     public static void main(String[] args) {
         // when two objects are equal
         MyClass first = new MyClass("a", "first");
