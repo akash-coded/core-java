@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class MergingMaps {
+public class MergingMapsTaskSolution {
 
     public static void main(String[] args) {
         Map<Integer, String> m1 = new HashMap<>();
