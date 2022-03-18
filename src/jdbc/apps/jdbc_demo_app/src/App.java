@@ -57,7 +57,7 @@ public class App {
                 String updateSql2 = """
                         UPDATE Worker
                         SET
-                            LAST_NAME = 'Stark'
+                            LAST_NAME = 'Man'
                         WHERE
                             WORKER_ID = 10""";
                 statement.addBatch(updateSql1);
