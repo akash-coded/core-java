@@ -127,6 +127,8 @@ class CivilEngineer {
     }
 }
 
+// TODO:Incorporate factory method pattern to create house instances
+
 public class BuilderDemo {
     public static void main(String[] args) {
         HouseBuilder woodenHouseBuilder = new WoodenHouseBuilder();
