@@ -87,10 +87,12 @@ class VictorianFactory implements FurnitureFactory {
         return new VictorianChair();
     }
 
+    // TODO: Implement appropriate object creation
     public Sofa createSofa() {
         return null;
     }
 
+    // TODO: Implement appropriate object creation
     public CoffeeTable createCoffeeTable() {
         return null;
     }
@@ -106,13 +108,14 @@ class ModernFactory implements FurnitureFactory {
         return new ModernChair();
     }
 
+    // TODO: Implement appropriate object creation
     public Sofa createSofa() {
-        // TODO: Implement appropriate object creation
         return null;
     }
 
+    // TODO: Implement appropriate object creation
     public CoffeeTable createCoffeeTable() {
-        // TODO: Implement appropriate object creation
+
         return null;
     }
 }
