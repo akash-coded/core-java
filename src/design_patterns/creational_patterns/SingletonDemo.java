@@ -5,7 +5,7 @@ class RegularClass {
 }
 
 class SingletonClass {
-    private static SingletonClass instance = null;
+    private static volatile SingletonClass instance = null;
 
     private SingletonClass() {
     }
