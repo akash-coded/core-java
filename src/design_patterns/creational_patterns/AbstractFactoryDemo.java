@@ -62,7 +62,7 @@ interface CoffeeTable {
     void keepOn();
 }
 
-// TODO: Implement the variants of Sofa and CoffeeTable products
+// TODO:Implement the variants of Sofa and CoffeeTable products
 
 /**
  * Abstract Factory
@@ -87,12 +87,12 @@ class VictorianFactory implements FurnitureFactory {
         return new VictorianChair();
     }
 
-    // TODO: Implement appropriate object creation
+    // TODO:Implement appropriate object creation
     public Sofa createSofa() {
         return null;
     }
 
-    // TODO: Implement appropriate object creation
+    // TODO:Implement appropriate object creation
     public CoffeeTable createCoffeeTable() {
         return null;
     }
@@ -108,14 +108,13 @@ class ModernFactory implements FurnitureFactory {
         return new ModernChair();
     }
 
-    // TODO: Implement appropriate object creation
+    // TODO:Implement appropriate object creation
     public Sofa createSofa() {
         return null;
     }
 
-    // TODO: Implement appropriate object creation
+    // TODO:Implement appropriate object creation
     public CoffeeTable createCoffeeTable() {
-
         return null;
     }
 }
@@ -137,17 +136,16 @@ class Client {
         // this.sofa.sitOn();
         // this.coffeeTable.keepOn();
 
-        // TODO: For each furniture, print whether it has legs or not
+        // TODO:For each furniture, print whether it has legs or not
     }
-
 }
 
 public class AbstractFactoryDemo {
     public static void main(String[] args) {
         FurnitureFactory factory = new ModernFactory();
-
         Client client = new Client(factory);
-
         client.useFurniture();
+
+        // TODO:Test VictorianFactory as well
     }
 }
