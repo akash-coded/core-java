@@ -9,6 +9,7 @@ public class TryWithResources {
     // try {
     // br = new BufferedReader(new FileReader("exception_handling/text.txt"));
     // System.out.println(br.readLine());
+    // // br.close();
     // } catch (IOException e) {
     // System.out.println("Some error occurred while reading from the file " + e);
     // } finally {

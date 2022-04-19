@@ -24,7 +24,7 @@ public class App {
                 ResultSet result = statement.executeQuery(sql);
                 while (result.next()) {
                     int id = result.getInt("WORKER_ID");
-                    String firstName = result.getString("FIRST_NAME");
+                    String firstName = result.getString(1);
                     System.out.println(id + "\t" + firstName);
                 }
 

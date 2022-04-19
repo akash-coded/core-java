@@ -23,10 +23,13 @@ public class LambdaExpressionDemo {
             @Override
             public int show(int val) {
                 System.out.println("Overridden inside anonymous inner class " + val);
-                return val + 5;
+                return val + 10;
             }
         };
         obj2.show(10);
+
+        MyInterfaceA objLambda = val -> val + 10;
+        objLambda.show(10);
 
         // Using lambda expression instead
         MyInterfaceA obj3 = value -> {

@@ -1,7 +1,5 @@
 package src.generics;
 
-import java.util.List;
-
 class IntegerClass {
     Integer num;
 
