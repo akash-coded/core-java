@@ -55,7 +55,7 @@ public class SingletonDemo {
         System.out.println(regularObj1);
         System.out.println(regularObj2);
         regularObj1.data = 20;
-        regularObj1.classVariable = 200;
+        RegularClass.classVariable = 200;
         System.out.println(regularObj1);
         System.out.println(regularObj2);
         System.out.println();
