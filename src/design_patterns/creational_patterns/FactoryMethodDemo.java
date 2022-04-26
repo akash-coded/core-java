@@ -45,8 +45,20 @@ class NotificationFactory {
 
 public class FactoryMethodDemo {
     public static void main(String[] args) {
-        NotificationFactory notificationFactory = new NotificationFactory();
-        Notification notification1 = notificationFactory.createNotification("SMS");
-        notification1.notifyUser();
+        System.out.println("Without Factory Method (Tight Coupling)::");
+        Notification smsNotification = new SMSNotification();
+        Notification emailNotification = new EmailNotification();
+        Notification pushNotification = new PushNotification();
+        smsNotification.notifyUser();
+        emailNotification.notifyUser();
+        pushNotification.notifyUser();
+        System.out.println();
+
+        System.out.println("With Factory Method (Loose Coupling)::");
+        NotificationFactory factory = new NotificationFactory();
+        Notification notification = factory.createNotification("SMS");
+        notification.notifyUser();
+
+        // TODO: How to obtain an instance of EmailNotification using factory method?
     }
 }
