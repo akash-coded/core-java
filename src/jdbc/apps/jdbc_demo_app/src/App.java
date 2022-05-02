@@ -9,26 +9,19 @@ public class App {
         final String username = "root";
         final String password = "password";
 
-        /* Establishing a connection with the DB */
+        System.out.println("Establishing a connection to the database...\n");
         try (Connection connection = DriverManager.getConnection(url, username, password)) {
             /* Fetching some DB metadata */
             System.out.println("Connected to database server "
                     + connection.getMetaData().getDatabaseProductName()
                     + " version: "
-                    + connection.getMetaData().getDatabaseProductVersion());
+                    + connection.getMetaData().getDatabaseProductVersion()
+                    + "\n");
 
-            /* Statement Demo */
+            System.out.println("USING STATEMENT:: ");
             try (Statement statement = connection.createStatement()) {
-                // Read (Retrieve) Operation using Statement
-                String sql = "SELECT * FROM Worker WHERE WORKER_ID = 3";
-                ResultSet result = statement.executeQuery(sql);
-                while (result.next()) {
-                    int id = result.getInt("WORKER_ID");
-                    String firstName = result.getString(1);
-                    System.out.println(id + "\t" + firstName);
-                }
 
-                // Create Operation using Statement
+                System.out.println("Create operation:");
                 String insertSql = """
                         INSERT INTO Worker (
                             WORKER_ID,
@@ -39,31 +32,63 @@ public class App {
                             DEPARTMENT)
                         VALUES (
                             10, 'Tony', 'Stark', '50000000', NOW(), 'R&D'
-                            )""";
+                            )
+                        """;
                 int rowsInserted = statement.executeUpdate(insertSql);
                 System.out.println(rowsInserted + " rows inserted.");
+                System.out.println();
 
-                // Update Operation using Statement
+                System.out.println("Read//Retrieve operation:");
+                String selectAllSql = """
+                        SELECT
+                            *
+                        FROM
+                            Worker
+                        """;
+                ResultSet result = statement.executeQuery(selectAllSql);
+                System.out.println("WORKER_ID\tFIRST_NAME\tLAST_NAME\tSALARY\tJOINING_DATE\tDEPARTMENT");
+                while (result.next()) {
+                    int workerId = result.getInt("WORKER_ID");
+                    String firstName = result.getString("FIRST_NAME");
+                    String lastName = result.getString("LAST_NAME");
+                    int salary = result.getInt(4);
+                    Timestamp joiningDate = result.getTimestamp("JOINING_DATE");
+                    String department = result.getString(6);
+                    System.out.println(
+                            String.format(
+                                    "%d\t%s\t%s\t%d\t%s\t%s",
+                                    workerId,
+                                    firstName,
+                                    lastName,
+                                    salary,
+                                    joiningDate,
+                                    department));
+                }
+                System.out.println();
+
+                System.out.println("Update operation:");
                 String updateSql1 = """
                         UPDATE Worker
                         SET
                             FIRST_NAME = 'Iron'
                         WHERE
-                            WORKER_ID = 10""";
+                            FIRST_NAME = 'Tony'""";
                 int rowsUpdated = statement.executeUpdate(updateSql1);
                 System.out.println(rowsUpdated + "  rows updated.");
+                System.out.println();
 
-                // Batch Update using Statement
+                System.out.println("Batch Update operation:");
                 String updateSql2 = """
                         UPDATE Worker
                         SET
                             LAST_NAME = 'Man'
                         WHERE
-                            WORKER_ID = 10""";
+                            LAST_NAME = 'Stark'""";
                 statement.addBatch(updateSql1);
                 statement.addBatch(updateSql2);
                 int[] recordsAffected = statement.executeBatch();
                 System.out.println("Status of batch updates:: " + Arrays.toString(recordsAffected));
+                System.out.println();
 
                 // Delete Operation using Statement
                 String deleteSql = """
@@ -72,10 +97,11 @@ public class App {
                             WORKER_ID = 10""";
                 int rowsDeleted = statement.executeUpdate(deleteSql);
                 System.out.println(rowsDeleted + "  rows deleted.");
+                System.out.println();
             }
 
-            /* PreparedStatement Demo */
-            // Read (Retrieve) Operation using PreparedStatement
+            System.out.println("USING PREPARED STATEMENT:: ");
+            System.out.println("Read//Retrieve operation:");
             String selectFormat = """
                     SELECT *
                     FROM
