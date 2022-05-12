@@ -13,9 +13,13 @@ class ReflectionDemo {
             // using getClass()
             Class obj = d1.getClass();
 
-            // get name of the class
+            // get FQN of the class
             String name = obj.getName();
-            System.out.println("Name: " + name);
+            System.out.println("FQN: " + name);
+
+            // get simple name of the class
+            String simpleName = obj.getSimpleName();
+            System.out.println("Simple Name: " + simpleName);
 
             // get the access modifier of the class
             int modifier = obj.getModifiers();
@@ -26,10 +30,11 @@ class ReflectionDemo {
 
             // get the superclass of Dog
             Class superClass = obj.getSuperclass();
-            System.out.println("Superclass: " + superClass.getName());
-        }
+            System.out.println("Superclass FQN: " + superClass.getName());
+            System.out.println("Superclass Simple Name: " + superClass.getSimpleName());
+            System.out.println("Superclass Modifier: " + Modifier.toString(superClass.getModifiers()));
 
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

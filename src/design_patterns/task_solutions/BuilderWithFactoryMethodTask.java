@@ -1,4 +1,4 @@
-package src.design_patterns.creational_patterns;
+package src.design_patterns.task_solutions;
 
 interface HousePlan {
     void setBasement(String basement);
@@ -108,13 +108,30 @@ class WoodenHouseBuilder implements HouseBuilder {
 }
 
 // TODO:Incorporate factory method pattern to create house instances
+class HouseBuilderFactory {
+
+    public static HouseBuilder getHouseBuilder(String houseType) {
+        if (houseType == null || houseType.isEmpty()) {
+            return null;
+        }
+        switch (houseType) {
+            case "IGLOO":
+                return new IglooHouseBuilder();
+            case "WOODEN":
+                return new WoodenHouseBuilder();
+            default:
+                throw new IllegalArgumentException("Unknown house type " + houseType);
+        }
+    }
+
+}
 
 // Director
 class CivilEngineer {
     private HouseBuilder houseBuilder;
 
-    CivilEngineer(HouseBuilder houseBuilder) {
-        this.houseBuilder = houseBuilder;
+    CivilEngineer(String houseType) {
+        this.houseBuilder = HouseBuilderFactory.getHouseBuilder(houseType);
     }
 
     public void constructHouse() {
@@ -134,10 +151,9 @@ class CivilEngineer {
 
 }
 
-public class BuilderDemo {
+public class BuilderWithFactoryMethodTask {
     public static void main(String[] args) {
-        HouseBuilder woodenHouseBuilder = new WoodenHouseBuilder();
-        CivilEngineer engineer = new CivilEngineer(woodenHouseBuilder);
+        CivilEngineer engineer = new CivilEngineer("WOODEN");
 
         engineer.constructHouse();
         House house = engineer.getHouse();

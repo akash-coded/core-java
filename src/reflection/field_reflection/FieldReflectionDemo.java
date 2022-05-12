@@ -32,9 +32,7 @@ class FieldReflectinDemo {
             String modifier1 = Modifier.toString(mod);
             System.out.println("Modifier: " + modifier1);
             System.out.println(" ");
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

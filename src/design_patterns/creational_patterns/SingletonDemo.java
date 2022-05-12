@@ -14,6 +14,7 @@ class RegularClass {
 class SingletonClass {
     // Step-1: declare a null static member reference of the class type
     private static volatile SingletonClass instance = null; // class variable
+
     int data = 50; // instance variable
 
     // Step-2: make the constructor private
@@ -23,7 +24,6 @@ class SingletonClass {
     // Step-3: define a static factory method which returns the singleton instance
     public static SingletonClass getInstance() {
         if (instance == null) {
-
             // Step-4(a): no active objects
             // create a new instance
             instance = new SingletonClass(); // lazy initialization

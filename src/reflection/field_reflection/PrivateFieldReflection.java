@@ -36,9 +36,7 @@ public class PrivateFieldReflection {
             // convert the access modifier to string
             String modifier2 = Modifier.toString(mod2);
             System.out.println("Modifier: " + modifier2);
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
