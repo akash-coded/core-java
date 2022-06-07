@@ -1,4 +1,4 @@
-package src.language_basics.io;
+package src.language_basics.io.output;
 
 public class OutputFormattingDemo {
 
