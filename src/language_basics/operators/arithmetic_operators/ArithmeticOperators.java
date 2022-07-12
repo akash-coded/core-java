@@ -23,6 +23,7 @@ public class ArithmeticOperators {
         // modulo operator
         System.out.println("a % b = " + (a % b));
 
+        System.out.println(3 * 5 / 2 - 1 + 2 * 7);
     }
 
 }

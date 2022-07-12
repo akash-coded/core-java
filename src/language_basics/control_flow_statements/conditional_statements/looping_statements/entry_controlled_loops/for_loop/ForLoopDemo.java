@@ -3,7 +3,9 @@ package src.language_basics.control_flow_statements.conditional_statements.loopi
 public class ForLoopDemo {
 
     public static void main(String[] args) {
-
+        for (int i = 1; i <= 10; i++) {
+            System.out.printf("5 X %d = %d%n", i, 5 * i);
+        }
     }
 
 }

@@ -3,14 +3,14 @@ import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver"); // optional
 
         final String url = "jdbc:mysql://localhost:3307/jdbc_demo";
         final String username = "root";
         final String password = "password";
 
         System.out.println("Establishing a connection to the database...\n");
-        try (Connection connection = DriverManager.getConnection(url, username, password)) {
+        try (Connection connection = DriverManager.getConnection(url, username, password);) {
             /* Fetching some DB metadata */
             System.out.println("Connected to database server "
                     + connection.getMetaData().getDatabaseProductName()
@@ -20,7 +20,6 @@ public class App {
 
             System.out.println("USING STATEMENT:: ");
             try (Statement statement = connection.createStatement()) {
-
                 System.out.println("Create operation:");
                 String insertSql = """
                         INSERT INTO Worker (

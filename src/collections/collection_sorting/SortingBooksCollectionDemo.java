@@ -61,6 +61,7 @@ class Book implements Comparable<Book> {
 }
 
 class BookComparator implements Comparator<Book> {
+
     public int compare(Book b1, Book b2) {
         if (b1.quantity > b2.quantity) { // ascending order
             return 1;
@@ -70,6 +71,7 @@ class BookComparator implements Comparator<Book> {
             return 0;
         }
     }
+
 }
 
 public class SortingBooksCollectionDemo {

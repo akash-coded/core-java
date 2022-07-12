@@ -20,7 +20,7 @@ class Pig implements Animal {
     }
 }
 
-public class InterfaceInheritanceDemo {
+public class InterfaceInheritance {
     public static void main(String[] args) {
         Pig myPig = new Pig(); // Create a Pig object
         myPig.animalSound();

@@ -3,7 +3,7 @@ package src.language_basics.control_flow_statements.conditional_statements.decis
 public class SwitchStatementDemo {
 
     public static void main(String[] args) {
-        int number = 4;
+        int number = 40;
         String size;
 
         // switch statement to check size

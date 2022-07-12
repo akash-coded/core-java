@@ -12,7 +12,7 @@ class Car extends Vehicle {
     String modelName = "Mustang"; // Car attribute
 }
 
-public class ClassInheritanceDemo {
+public class ClassInheritance {
     public static void main(String[] args) {
         // Create a myCar object
         Car myCar = new Car();

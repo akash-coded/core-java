@@ -58,14 +58,14 @@ public class SingleDimensionalArrays {
     }
 
     public static void main(String[] args) {
-        // example1();
+        example1();
         // example2();
         // example3();
         // example4(new int[] { 10, 20, 30, 40, 50 }); // anonymous array
-        int[] array = example5();
+        // int[] array = example5();
         // using foreach loop to traverse an array
-        for (int element : array) {
-            System.out.println(element);
-        }
+        // for (int element : array) {
+        // System.out.println(element);
+        // }
     }
 }

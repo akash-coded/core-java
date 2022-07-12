@@ -9,7 +9,7 @@ public class MenuDrivenProgramDemo {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String continueChoice = "N";
+        String continueChoice;
 
         System.out.println("Welcome to ATM Machine...");
 
