@@ -17,13 +17,21 @@ package src.oops_concepts.abstraction;
 // abstract class
 abstract class Car {
     abstract void accelerate();
+
+    final void showNumberPlate() {
+        System.out.println("Indian number plate");
+    }
 }
 
 // concrete class
 class Suzuki extends Car {
+    @Override
     void accelerate() {
         System.out.println("Suzuki::accelerate");
+    }
 
+    void showCustomNumberPlate() {
+        System.out.println("Suzuki custom number plate");
     }
 }
 
@@ -31,6 +39,7 @@ public class AbstractionDemo {
     public static void main(String[] args) {
         Car obj = new Suzuki(); // Car object => contents of Suzuki
         obj.accelerate(); // call the method
+        // obj.showCustomNumberPlate();
     }
 }
 

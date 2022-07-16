@@ -2,11 +2,11 @@ package src.functional_programming.predefined_functional_interfaces;
 
 import java.util.function.Predicate;
 
-// class BooleanTest implements Predicate<Integer> {
-//     public boolean test(Integer num) {
-//         return num >= 10;
-//     }
-// }
+class BooleanTest implements Predicate<Integer> {
+    public boolean test(Integer num) {
+        return num >= 10;
+    }
+}
 
 public class PredicateInterfaceDemo {
     static Boolean checkAge(int age) {
